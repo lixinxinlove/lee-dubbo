@@ -8,7 +8,9 @@
         <outputRelativeToContentRoot value="true" />
         <module name="01-first-consumer" />
         <module name="00-common" />
+        <module name="02-provider-zk" />
         <module name="01-first-provider" />
+        <module name="02-consumer-zk" />
       </profile>
     </annotationProcessing>
   </component>

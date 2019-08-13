@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--当前工程的名称，监控中心中使用-->
+    <dubbo:application name="02-consumer-zk"/>
+
+    <!--声明zk服务中心：单机zk-->
+    <!--<dubbo:registry address="zookeeper://zkOS:2181"/>-->
+    <!--<dubbo:registry protocol="zookeeper" address="zkOS:2181"/>-->
+
+    <!--声明zk服务中心：zk集群-->
+    <dubbo:registry address="zookeeper://zkOS1:2181?backup=zkOS2:2181,zkOS3:2181,zkOS4:2181"/>
+
+    <!--消费引用：基于服务级别的声明式缓存（结果缓存）-->
+    <!--<dubbo:reference id="someService" cache="true"-->
+                     <!--interface="com.kaikeba.service.SomeService"/>-->
+
+    <!--消费引用：基于方法级别的声明式缓存（结果缓存）-->
+    <dubbo:reference id="someService" interface="com.lixinxinlove.service.SomeService">
+        <dubbo:method name="hello" cache="lru"/>
+    </dubbo:reference>
+</beans>

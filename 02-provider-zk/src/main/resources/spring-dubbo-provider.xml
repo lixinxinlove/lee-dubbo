@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--当前工程名称，该名称将在监控平台使用-->
+    <dubbo:application name="02-provider-zk"/>
+
+    <!--注册Service，其就是真正的服务提供者-->
+    <bean id="someService" class="com.lixinxinlove.service.SomeServiceImpl"/>
+
+    <!--声明zk服务中心：单机zk-->
+    <!--<dubbo:registry address="zookeeper://zkOS:2181"/>-->
+    <!--<dubbo:registry protocol="zookeeper" address="zkOS:2181"/>-->
+
+    <!--声明zk服务中心：zk集群-->
+    <dubbo:registry address="zookeeper://zkOS1:2181?backup=zkOS2:2181,zkOS3:2181,zkOS4:2181"/>
+
+    <!--暴露服务：将服务暴露给zk服务中心-->
+    <dubbo:service interface="com.lixinxinlove.service.SomeService"
+                   ref="someService"/>
+
+
+</beans>
