@@ -7,11 +7,11 @@
     <dubbo:application name="02-consumer-zk"/>
 
     <!--声明zk服务中心：单机zk-->
-    <!--<dubbo:registry address="zookeeper://zkOS:2181"/>-->
-    <!--<dubbo:registry protocol="zookeeper" address="zkOS:2181"/>-->
+    <dubbo:registry address="zookeeper://39.107.225.207:2181"/>
+    <dubbo:registry protocol="zookeeper" address="zookeeper://39.107.225.207:2181"/>
 
     <!--声明zk服务中心：zk集群-->
-    <dubbo:registry address="zookeeper://zkOS1:2181?backup=zkOS2:2181,zkOS3:2181,zkOS4:2181"/>
+<!--    <dubbo:registry address="zookeeper://zkOS1:2181?backup=zkOS2:2181,zkOS3:2181,zkOS4:2181"/>-->
 
     <!--消费引用：基于服务级别的声明式缓存（结果缓存）-->
     <!--<dubbo:reference id="someService" cache="true"-->
