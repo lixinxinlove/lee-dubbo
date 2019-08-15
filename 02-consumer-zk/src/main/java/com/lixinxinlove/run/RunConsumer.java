@@ -5,10 +5,7 @@ import com.lixinxinlove.service.SomeService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-/**
- * company: www.kaikeba.com
- * Author: Rey
- */
+
 public class RunConsumer {
     public static void main(String[] args) {
         // 创建Spring容器

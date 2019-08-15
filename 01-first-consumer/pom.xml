@@ -12,6 +12,50 @@
     <groupId>com.lxinxinlove</groupId>
     <artifactId>01-first-consumer</artifactId>
 
+
+    <repositories>
+        <repository>
+            <id>publuic</id>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <name>Pulblic Repositories</name>
+            <url>http://127.0.0.1:8081/nexus/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>central</id>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <url>http://repo1.maven.org/maven2/</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+
+        <pluginRepository>
+            <id>public</id>
+            <name>Pulblic Repositories</name>
+            <url>http://127.0.0.1:8081/nexus/content/groups/public/</url>
+        </pluginRepository>
+
+        <pluginRepository>
+            <id>central</id>
+            <name>Central Repository</name>
+            <url>http://repo1.maven.org/maven2/</url>
+            <releases>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+
+    </pluginRepositories>
+
+
+
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>8</maven.compiler.source>
